@@ -1,0 +1,108 @@
+# ---------------------------------
+# Python
+# ---------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribuição / builds
+build/
+dist/
+pip-wheel-metadata/
+*.egg-info/
+*.egg
+
+# Logs
+*.log
+logs/
+tmp/
+temp/
+
+# ---------------------------------
+# Ambiente virtual
+# ---------------------------------
+.venv/
+venv/
+env/
+ENV/
+.venv*/
+venv*/
+env*/
+
+# ---------------------------------
+# Configurações e segredos
+# ---------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Arquivos de configuração locais
+*.local
+*.secret.*
+
+# ---------------------------------
+# Banco de dados local
+# ---------------------------------
+*.sqlite3
+*.db
+instance/
+data/
+db.sqlite3
+
+# ---------------------------------
+# Testes / Qualidade de código
+# ---------------------------------
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.mypy_cache/
+.ruff_cache/
+.pytype/
+.cache/
+
+# ---------------------------------
+# Ferramentas de tipo/formatadores
+# ---------------------------------
+.dmypy.json
+.pyre/
+.pyright/
+
+# ---------------------------------
+# IDEs / Editores
+# ---------------------------------
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+.idea/
+*.iml
+*.sublime-project
+*.sublime-workspace
+
+# ---------------------------------
+# Docker / Contêiner
+# ---------------------------------
+docker-compose.override.yml
+.docker/
+*.pid
+
+# ---------------------------------
+# Frontend (se tiver SPA junto)
+# ---------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.vite/
+dist/
+.next/
+out/
