@@ -12,13 +12,43 @@ app = FastAPI()
 # 4 crus (2 por aluno)
 
 #PeriPecas:
-# - Monitor (Tamanho x"- Frequencia Hz - Preco R$ - Loja)
+# - Monitor 
+# 
+# ( Nome ou Loja (Samsung / ASUS / etc..)
+# - Tamanho x"
+# - Frequencia Hz 
+# - Preco R$)
 
-# - Notebook (Tamanho Tela" - Memoria RAM GB - Preco R$ - Loja - placa de video - marca da placa de video - RGB S/N - peso kg - SSD S/N)
+# - Notebook 
+# 
+# ( Nome ou marca (Dell / Acer / etc..)
+# - Tamanho Tela" 
+# - Memoria RAM GB 
+# - Preco R$ 
+# - Loja
+# - Processador 
+# - placa de video 
+# - marca da placa de video 
+# - RGB S/N - peso kg 
+# - SSD S/N)
 
-# - Teclado (Preco R$ - modelo - Conexão - Cor)
+# - Teclado 
+# 
+# ( Nome (Reddragon / Logitech / etc..)
+# - Preco R$ 
+# - modelo
+# - Gamer ou Não(RGB)  
+# - Conexão 
+# - Cor)
 
-# - Mouse (Preco R$ - modelo - DPI - Gamer ou Não(RGB) - Quantidade de botão)
+# - Mouse 
+# 
+# ( Nome (Marca / Codenome)
+# - Preco R$ 
+# - modelo 
+# - DPI 
+# - Gamer ou Não(RGB) 
+# - Quantidade de botão)
 
 # pip install pymysql
 # pip freeze > requirements.txt
