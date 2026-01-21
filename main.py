@@ -1,5 +1,13 @@
-# Teste
+from fastapi import Depends, FastAPI, HTTPException
 
+from fastapi.middleware.cors import CORSMiddleware
+
+from sqlalchemy.orm import Session
+
+app = FastAPI()
+
+
+# Teste
 
 # 4 crus (2 por aluno)
 
@@ -12,12 +20,5 @@
 
 # - Mouse (Preco R$ - modelo - DPI - Gamer ou Não(RGB) - Quantidade de botão)
 
-from fastapi import Depends, FastAPI, HTTPException
-
-from fastapi.middleware.cors import CORSMiddleware
-
-from sqlalchemy.orm import Session
-
-app = FastAPI()
 # pip install pymysql
 # pip freeze > requirements.txt
