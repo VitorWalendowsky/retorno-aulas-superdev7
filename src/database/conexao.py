@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 
-DATABASE_URL = "mysql+pymysql://root:admin@127.0.0.1:3306/"
+DATABASE_URL = "mysql+pymysql://root:admin@127.0.0.1:3306/perifericos"
 
 
 engine = create_engine(url=DATABASE_URL, echo=False)
