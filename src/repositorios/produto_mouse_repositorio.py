@@ -49,4 +49,7 @@ def obter_todos(db:Session):
 def obter_por_id(db: Session, id: int):
     mouse = db.query(Mouse).filter(Mouse.id == id).first()
 
+    if not mouse:
+        return 0
+
     return mouse

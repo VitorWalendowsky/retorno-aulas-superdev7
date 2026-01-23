@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from sqlalchemy.orm import Session
 
-from classes import TecladoCriar, TecladoEditar
+from classes import MouseCriar, MouseEditar, TecladoCriar, TecladoEditar
 from src.database.conexao import get_db
 
 from src.repositorios import produto_monitor_repositorio, produto_mouse_repositorio, produto_notebook_repositorio, produto_teclado_repositorio
@@ -118,3 +118,68 @@ def obter_teclado_por_id(id: int, db: Session = Depends(get_db)):
 
 # pip install pymysql
 # pip freeze > requirements.txt
+
+
+@app.post("/api/v1/mouses")
+def cadastrar_mouse(mouse: MouseCriar, db: Session = Depends(get_db)):
+    mouse = produto_mouse_repositorio.cadastrar(
+        db,
+        mouse.nome,
+        mouse.dpi,
+        mouse.modelo,
+        mouse.rgb,
+        mouse.quantidade_botao,
+        mouse.preco,
+    )
+
+    return mouse
+
+
+@app.get("/api/v1/mouses")
+def obter_mouses(db: Session = Depends(get_db)):
+    mouses = produto_mouse_repositorio.obter_todos(db)
+
+    return mouses
+
+
+@app.get("/api/v1/mouses/{id}")
+def obter_mouse_por_id(id: int, db: Session = Depends(get_db)):
+    mouse = produto_mouse_repositorio.obter_por_id(db, id)
+    
+    if mouse == 0:
+        raise HTTPException(status_code=404, detail="Mouse não encontrado.")
+    
+
+    return mouse
+
+
+@app.delete("/api/v1/mouses/{id}")
+def apagar_mouse(id: int, db: Session = Depends(get_db)):
+    linhas_apagadas = produto_mouse_repositorio.apagar(db, id)
+
+    if linhas_apagadas != 1:
+        raise HTTPException(status_code=404, detail="Mouse não encontrado para apagar.")
+    
+    return {
+        "status": "Mouse apagado com sucesso!"
+    }
+
+
+@app.put("/api/v1/mouses/{id}")
+def editar_mouse(id: int, mouse: MouseEditar, db: Session = Depends(get_db)):
+    linhas_alteradas = produto_mouse_repositorio.editar(db,
+    id,
+    mouse.nome,
+    mouse.dpi,
+    mouse.modelo,
+    mouse.rgb,
+    mouse.quantidade_botao,
+    mouse.preco,
+    )
+
+    if linhas_alteradas != 1:
+        raise HTTPException(status_code=404, detail="Mouse não encontrado para edição.")
+    
+    return {
+        "status": "Mouse alterado com sucesso!"
+    }
