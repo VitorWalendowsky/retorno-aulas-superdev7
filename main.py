@@ -97,6 +97,13 @@ def editar_teclado(id: int, teclado: TecladoEditar, db: Session = Depends(get_db
     return {
         "status": "Teclado alterado com sucesso."
     }
+
+
+@app.get("/api/v1/teclados/{id}")
+def obter_teclado_por_id(id: int, db: Session = Depends(get_db)):
+    teclado = produto_teclado_repositorio.obter_por_id(db, id)
+
+    return teclado
 # ---------------------------------------------------------------------------------------------------------------------
 
 
