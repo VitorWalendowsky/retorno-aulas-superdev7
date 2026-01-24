@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 from classes import MouseCriar, MouseEditar, TecladoCriar, TecladoEditar
 from src.database.conexao import get_db
 
-from src.repositorios import produto_monitor_repositorio, produto_mouse_repositorio, produto_notebook_repositorio, produto_teclado_repositorio
+from src.repositorios import descontos_repositorio, produto_monitor_repositorio, produto_mouse_repositorio, produto_notebook_repositorio, produto_teclado_repositorio
 
 app = FastAPI()
 
@@ -183,3 +183,18 @@ def editar_mouse(id: int, mouse: MouseEditar, db: Session = Depends(get_db)):
     return {
         "status": "Mouse alterado com sucesso!"
     }
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+
+# Possivel promoção 20%  - Mouse & Teclado (
+# nome produto mouse = referencia Mouse
+# preco original = preco Mouse
+# preco final (desconto) = preco final após desconto
+# nome produto mouse = referencia Teclado
+# preco original = preco Teclado
+# preco final (desconto) = preco final após desconto
+# valor final compra = valor final da compra
+# valor final desconto = valor do desconto 
+# )
+

@@ -82,3 +82,8 @@ class MouseEditar(BaseModel):
     rgb : bool
     quantidade_botao : int
     preco : float
+
+
+# ----------------------------------- Descontos ---------------------------------------------------
+
+

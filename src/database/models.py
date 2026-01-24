@@ -1,5 +1,5 @@
-from sqlalchemy.orm import declarative_base
-from sqlalchemy import Column, Integer, Double, String, Boolean, Numeric
+from sqlalchemy.orm import declarative_base, relationship
+from sqlalchemy import Column, Integer, Double, String, Boolean, Numeric, ForeignKey
 
 
 Base = declarative_base()
@@ -49,6 +49,8 @@ class Teclado(Base):
     cor = Column(String(100), nullable=False)
     preco = Column(Numeric(precision=10, scale=2), nullable=False)
 
+    desconto = relationship("Desconto", back_populates="teclados")
+
 
 # ------------------------------------------------ Mouse -------------------------------------------
 
@@ -63,3 +65,10 @@ class Mouse(Base):
     rgb = Column(Boolean, nullable=False)
     quantidade_botao = Column(Integer, nullable=False)
     preco = Column(Numeric(precision=10, scale=2), nullable=False)
+
+
+# ------------------------------------------------ Desconto -------------------------------------------
+
+
+
+    
