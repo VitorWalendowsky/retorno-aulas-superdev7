@@ -49,7 +49,7 @@ class Teclado(Base):
     cor = Column(String(100), nullable=False)
     preco = Column(Numeric(precision=10, scale=2), nullable=False)
 
-    desconto = relationship("Desconto", back_populates="teclados")
+    combo_20_porcento = relationship("Combo_20_Porcento", back_populates="teclado")
 
 
 # ------------------------------------------------ Mouse -------------------------------------------
@@ -66,9 +66,20 @@ class Mouse(Base):
     quantidade_botao = Column(Integer, nullable=False)
     preco = Column(Numeric(precision=10, scale=2), nullable=False)
 
+    combo_20_porcento = relationship("Combo_20_Porcento", back_populates="mouse")
 
 # ------------------------------------------------ Desconto -------------------------------------------
 
 
+class Combo_20_Porcento(Base):
+    __tablename__ = "combo_20_porcento"
 
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    nome_combo = Column(String(100), nullable=False)
+    id_mouse = Column(Integer, ForeignKey("mouse.id"))
+    id_teclado = Column(Integer, ForeignKey("teclado.id"))
+
+    mouse = relationship("Mouse", back_populates="combo_20_porcento")
+
+    teclado = relationship("Teclado", back_populates="combo_20_porcento")
     
