@@ -4,10 +4,10 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from sqlalchemy.orm import Session
 
-from classes import MouseCriar, MouseEditar, TecladoCriar, TecladoEditar
+from classes import Combo20Criar, Combo20Editar, MouseCriar, MouseEditar, TecladoCriar, TecladoEditar
 from src.database.conexao import get_db
 
-from src.repositorios import descontos_repositorio, produto_monitor_repositorio, produto_mouse_repositorio, produto_notebook_repositorio, produto_teclado_repositorio
+from src.repositorios import combos_20_porcento_repositorio, produto_monitor_repositorio, produto_mouse_repositorio, produto_notebook_repositorio, produto_teclado_repositorio
 
 app = FastAPI()
 
@@ -198,3 +198,60 @@ def editar_mouse(id: int, mouse: MouseEditar, db: Session = Depends(get_db)):
 # valor final desconto = valor do desconto 
 # )
 
+@app.get("/api/v1/combos_20_porcento")
+def obter_todos_combos(db: Session = Depends(get_db)):
+    promocoes = combos_20_porcento_repositorio.obter_todos(db)
+
+    return promocoes
+
+
+@app.post("/api/v1/combos_20_porcento")
+def cadastrar_combo(combo: Combo20Criar, db: Session = Depends(get_db)):
+    combo = combos_20_porcento_repositorio.cadastrar_combo(
+        db,
+        combo.nome_combo,
+        combo.id_mouse,
+        combo.id_teclado,
+    )
+
+    return combo
+
+
+@app.put("/api/v1/combos_20_porcento/{id}")
+def editar_combo(id: int, combo: Combo20Editar, db: Session = Depends(get_db)):
+    combo = combos_20_porcento_repositorio.editar_combo(
+        db,
+        id,
+        combo.nome_combo,
+        combo.id_mouse,
+        combo.id_teclado
+    )
+
+    if combo != 1:
+        raise HTTPException(status_code=404, detail="Combo de Teclado e Mouse não encontrado para edição.")
+    
+    return {
+        "status": "Combo modificado com sucesso!"
+    }
+
+
+@app.delete("/api/v1/combos_20_porcento/{id}")
+def apagar_combo(id: int, db: Session = Depends(get_db)):
+    linhas_apagadas = combos_20_porcento_repositorio.apagar_combo(db, id)
+
+    if linhas_apagadas != 1:
+        raise HTTPException(status_code= 404, detail="Não foi possível encontrar o combo para apagá-lo.")
+    
+    return {
+        "status": "Combo deletado com sucesso!"
+    }
+
+
+@app.get("/api/v1/combos_20_porcento/{id}")
+def obter_combo_por_id(id: int, db: Session = Depends(get_db)):
+    combo = combos_20_porcento_repositorio.obter_combo_por_id(db, id)
+
+    if combo == 0:
+        raise HTTPException(status_code= 404, detail="Combo não encontrado.")
+    
+    return combo

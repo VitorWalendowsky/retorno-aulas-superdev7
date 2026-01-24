@@ -84,6 +84,16 @@ class MouseEditar(BaseModel):
     preco : float
 
 
-# ----------------------------------- Descontos ---------------------------------------------------
+# ----------------------------------- Combos 20% (Teclado e Mouse) ---------------------------------------------------
 
 
+class Combo20Criar(BaseModel):
+    nome_combo : str
+    id_mouse: int
+    id_teclado: int
+
+
+class Combo20Editar(BaseModel):
+    nome_combo : str
+    id_mouse: int
+    id_teclado: int

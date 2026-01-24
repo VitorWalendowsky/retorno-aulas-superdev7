@@ -53,5 +53,16 @@ CREATE TABLE mouse (
 
 select * from mouse;
 
+CREATE TABLE combo_20_porcento (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_combo VARCHAR(100) NOT NULL,
+    id_mouse INT NOT NULL,
+    id_teclado INT NOT NULL,
+  
+	FOREIGN KEY (id_mouse) REFERENCES mouse (id),
+    FOREIGN KEY (id_teclado) REFERENCES teclado (id)
+);
 
+INSERT INTO combo_20_porcento (nome_combo, id_mouse, id_teclado) VALUES ("Teste", 1, 1);
 
+DROP TABLE IF EXISTS combo_20_porcento;
