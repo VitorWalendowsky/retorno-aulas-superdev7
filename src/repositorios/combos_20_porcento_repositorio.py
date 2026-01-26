@@ -71,4 +71,18 @@ def obter_combo_por_id(db: Session, id: int):
     if not combo:
         return 0
     
-    return combo
+    preco_total = combo.mouse.preco + combo.teclado.preco
+
+    valor_desconto =  preco_total / 5
+
+    preco_final = preco_total - valor_desconto
+    return {
+            "id" : combo.id,
+            "nome_promocao" : combo.nome_combo,
+            "mouse" : combo.mouse,
+            "teclado" : combo.teclado,
+            "preco_total": preco_total,
+            "porcentagem_desconto": "20%",
+            "valor_desconto": valor_desconto,
+            "preco_final": preco_final
+        }

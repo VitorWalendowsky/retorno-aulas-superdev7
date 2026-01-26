@@ -1,0 +1,69 @@
+TECLADOS
+----------------------------------------
+Nome: Logitech
+Modelo: K120
+Tipo de Conexão: USB
+Cor: Preto
+Preço: R$ 79,90
+
+Nome: Redragon
+Modelo: Kumara K552
+Tipo de Conexão: USB
+Cor: Preto/Vermelho
+Preço: R$ 249,90
+
+Nome: Apple
+Modelo: Magic Keyboard
+Tipo de Conexão: Bluetooth
+Cor: Branco
+Preço: R$ 899,00
+
+Nome: HyperX
+Modelo: Alloy FPS Pro
+Tipo de Conexão: USB
+Cor: Preto
+Preço: R$ 499,90
+
+Nome: Logitech
+Modelo: MX Keys
+Tipo de Conexão: Bluetooth
+Cor: Cinza
+Preço: R$ 699,90
+
+
+MOUSES
+----------------------------------------
+Nome: Logitech
+Modelo: G203
+DPI: 8000
+Possui RGB: Sim
+Quantidade de Botões: 6
+Preço: R$ 199,90
+
+Nome: Razer
+Modelo: DeathAdder V2
+DPI: 20000
+Possui RGB: Sim
+Quantidade de Botões: 8
+Preço: R$ 399,90
+
+Nome: Redragon
+Modelo: Cobra M711
+DPI: 10000
+Possui RGB: Sim
+Quantidade de Botões: 7
+Preço: R$ 179,90
+
+Nome: Corsair
+Modelo: M55 RGB Pro
+DPI: 18000
+Possui RGB: Sim
+Quantidade de Botões: 6
+Preço: R$ 349,90
+
+Nome: Multilaser
+Modelo: MO208
+DPI: 3200
+Possui RGB: Não
+Quantidade de Botões: 4
+Preço: R$ 49,90
